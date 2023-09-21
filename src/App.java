@@ -41,5 +41,12 @@ public class App {
         }
     }
 
-    
+
+    public class player {
+        private var player_name;
+
+        public player(String player_name) {
+            this.player_name = player_name;
+        }
+    }
 }
