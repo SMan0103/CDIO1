@@ -15,16 +15,25 @@ public class Dice {
     }
 
     public class DiceThrow {
-        public int[] individualResults;
-        public int addedResult;
+        public final int[] individualResults; // Final variables can not be changed! Therefor we dont need uneccassary functions like getSum(), getEns(), etc..
+        public final int addedResult;
+        public final boolean dieFacesEqual;
         public DiceThrow(Dice _dice) {
             individualResults = new int[_dice.diceAmount];
-            addedResult = 0;
+            int _addedResult = 0;
+            boolean _dieFacesEqual = true;
 
             for (int i = 0; i < diceAmount; i++) {
                 individualResults[i] = new SplittableRandom().nextInt(0, diceFaceAmount+1);
-                addedResult += individualResults[i];
+                _addedResult += individualResults[i];
+                if (i > 0 && individualResults[i] != individualResults[i-1]) // First check i>0, which means we have a dice in the array @ i-1. Then check if they are NOT equal!
+                {
+                    _dieFacesEqual = false;
+                }
             }
+
+            dieFacesEqual = _dieFacesEqual;
+            addedResult = _addedResult;
         }
     }
 }
