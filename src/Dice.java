@@ -1,28 +1,28 @@
 import java.util.SplittableRandom;
 
 public class Dice {
-    private int dice_amount;
-    private int dice_face_amount;
+    private int diceAmount;
+    private int diceFaceAmount;
 
-    public DiceThrow diceThrow() {// Dice throw will output as following array: [Total value of faces, Face1, Face2, etc...] eg: [11, 5, 6]
+    public DiceThrow DiceThrow() {// Dice throw will output as following array: [Total value of faces, Face1, Face2, etc...] eg: [11, 5, 6]
         DiceThrow dt = new DiceThrow(this);
         return dt;
     }
 
-    public Dice(int _dice_amount, int _dice_face_amount) {
-        dice_amount = _dice_amount;
-        dice_face_amount = _dice_face_amount;
+    public Dice(int _diceAmount, int _diceFaceAmount) {
+        diceAmount = _diceAmount;
+        diceFaceAmount = _diceFaceAmount;
     }
 
     public class DiceThrow {
         public int[] individualResults;
         public int addedResult;
         public DiceThrow(Dice _dice) {
-            individualResults = new int[_dice.dice_amount];
+            individualResults = new int[_dice.diceAmount];
             addedResult = 0;
 
-            for (int i = 0; i < dice_amount; i++) {
-                individualResults[i] = new SplittableRandom().nextInt(0, dice_face_amount+1);
+            for (int i = 0; i < diceAmount; i++) {
+                individualResults[i] = new SplittableRandom().nextInt(0, diceFaceAmount+1);
                 addedResult += individualResults[i];
             }
         }
