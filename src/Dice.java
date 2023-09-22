@@ -24,7 +24,7 @@ public class Dice {
             boolean _dieFacesEqual = true;
 
             for (int i = 0; i < diceAmount; i++) {
-                individualResults[i] = new SplittableRandom().nextInt(0, diceFaceAmount+1);
+                individualResults[i] = new SplittableRandom().nextInt(1, diceFaceAmount+1);
                 _addedResult += individualResults[i];
                 if (i > 0 && individualResults[i] != individualResults[i-1]) // First check i>0, which means we have a dice in the array @ i-1. Then check if they are NOT equal!
                 {
