@@ -1,8 +1,10 @@
-
-
 public class App {
     public static void main(String[] args) throws Exception {
-       DiceTest();
+        DiceTest();
+
+        Player player1 = new Player("player1");
+        Player player2 = new Player("player2");
+        PlayRound.playRound(player1, player2);
     }
 
     public static void DiceTest() {
