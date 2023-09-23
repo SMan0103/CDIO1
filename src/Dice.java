@@ -4,7 +4,7 @@ public class Dice {
     private int diceAmount;
     private int diceFaceAmount;
 
-    public DiceThrow DiceThrow() {// Dice throw will output as following array: [Total value of faces, Face1, Face2, etc...] eg: [11, 5, 6]
+    public DiceThrow DiceThrow() {
         DiceThrow dt = new DiceThrow(this);
         return dt;
     }
