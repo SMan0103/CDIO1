@@ -12,12 +12,17 @@ public class Test {
         int[] frequencyCounterTotal = new int[_diceFaceAmount*_diceAmount];
         int frequencySameValue = 0;
 
-        for (int i = 0; i < 1000; i++) {
+        int amt_run = 1000;
+        int amt_errors = 0;
+
+        for (int i = 0; i < amt_run; i++) {
             Dice.DiceThrow dthrow = _dice.DiceThrow();
             
             // TEST THRESHOLD
             for (int a = 0; a < _diceAmount; a++) {
-                System.out.println("Test die(" + a + ") face count threshold (1-" + _diceFaceAmount + "): " + dthrow.individualResults[a] + "=" +  ((dthrow.individualResults[a]<_diceFaceAmount+1 && dthrow.individualResults[a]>0) ? "PASS" : "FAIL"));
+                boolean passRequirementThreshold = dthrow.individualResults[a]<_diceFaceAmount+1 && dthrow.individualResults[a]>0;
+                System.out.println("Test die(" + a + ") face count threshold (1-" + _diceFaceAmount + "): " + dthrow.individualResults[a] + "=" +  ((passRequirementThreshold) ? "PASS" : "FAIL"));
+                if (!passRequirementThreshold) {amt_errors++;};
             }
             
             // TEST ADDITION
@@ -25,7 +30,9 @@ public class Test {
             for (int a = 0; a < _diceAmount; a++) {
                 total += dthrow.individualResults[a];
             }
-            System.out.println("Test die addition: " + total +  "=" + dthrow.addedResult + "=" + (total == dthrow.addedResult ? "PASS" : "FAIL"));
+            boolean passRequirementAddedResult = total == dthrow.addedResult;
+            System.out.println("Test die addition: " + total +  "=" + dthrow.addedResult + "=" + (passRequirementAddedResult ? "PASS" : "FAIL"));
+            if (!passRequirementAddedResult) {amt_errors++;};
 
             // TEST SAME VALUE
             boolean isSame = true;
@@ -33,8 +40,10 @@ public class Test {
                 isSame = (dthrow.individualResults[a] == dthrow.individualResults[a-1]);
                 if (!isSame) {break;}
             }
-            System.out.println("Test same value: " + String.valueOf(isSame) + "=" + String.valueOf(dthrow.dieFacesEqual) + "=" + (isSame == dthrow.dieFacesEqual ? "PASS" : "FAIL"));
+            boolean passRequirementSame = isSame == dthrow.dieFacesEqual;
+            System.out.println("Test same value: " + String.valueOf(isSame) + "=" + String.valueOf(dthrow.dieFacesEqual) + "=" + (passRequirementSame ? "PASS" : "FAIL"));
             System.out.println();
+            if (!passRequirementSame) {amt_errors++;};
 
             // ADD NUMBERS TO STATISTICS VARIABLES
             for (int a = 0; a < _diceAmount; a++) {
@@ -55,5 +64,7 @@ public class Test {
         }
 
         System.out.println("Amount of same values rolled: " + frequencySameValue);
+
+        System.out.println("\nTotal errors for (" + amt_run + ") rolls: " + amt_errors + "=" + (amt_errors == 0 ? "PASS" : "FAIL"));
     }
 }
