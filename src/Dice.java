@@ -20,20 +20,29 @@ public class Dice {
         public final boolean dieFacesEqual;
         public DiceThrow(Dice _dice) {
             individualResults = new int[_dice.diceAmount];
-            int _addedResult = 0;
-            boolean _dieFacesEqual = true;
-
             for (int i = 0; i < diceAmount; i++) {
                 individualResults[i] = new SplittableRandom().nextInt(1, diceFaceAmount+1);
-                _addedResult += individualResults[i];
-                if (i > 0 && individualResults[i] != individualResults[i-1]) // First check i>0, which means we have a dice in the array @ i-1. Then check if they are NOT equal!
+            }
+            addedResult = addResult(individualResults);
+            dieFacesEqual = calculateDieFaceEqual(individualResults);
+        }
+
+        private int addResult(int[] resArray) {
+            int addedRes = 0;
+            for (int res : resArray) {
+                addedRes += res;
+            }
+            return addedRes;
+        }
+        
+        private boolean calculateDieFaceEqual(int[] resArray) {
+            for (int i = 1; i < resArray.length; i++) {
+                if (individualResults[i] != individualResults[i-1]) // Check if they are NOT equal!
                 {
-                    _dieFacesEqual = false;
+                    return false;
                 }
             }
-
-            dieFacesEqual = _dieFacesEqual;
-            addedResult = _addedResult;
+            return true;
         }
     }
 }
