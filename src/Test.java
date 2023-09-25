@@ -12,7 +12,7 @@ public class Test {
         Player pl2 = new Player("pl2");
 
         PlayRound.performaceTestMode = true;
-        System.out.println("Performnce test mode enabled. Please press enter twice to compelete a single round of play like normal, and measure performance.");
+        System.out.println("Performance test mode enabled. Please press enter twice to compelete a single round of play like normal, and measure performance.");
         PlayRound.playRound(new Player[]{pl1,pl2}, scn);
     
     }
