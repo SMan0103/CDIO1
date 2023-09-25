@@ -1,9 +1,28 @@
+
+import java.util.Scanner;
 public class Test {
     public static void main(String[] args) throws Exception {
-        InitiateTest();
+        InitiateDiceTest();
+        InitiateRoundTimeTest();
     }
 
-    public static void InitiateTest() {
+    public static void InitiateRoundTimeTest() {
+        Scanner scn = new Scanner(System.in);
+        Player pl1 = new Player("pl1");
+        Player pl2 = new Player("pl2");
+
+        PlayRound.performaceTestMode = true;
+        System.out.println("Performnce test mode enabled. Please press enter twice to compelete a single round of play like normal, and measure performance.");
+        PlayRound.playRound(new Player[]{pl1,pl2}, scn);
+    
+    }
+    public static void RoundTestTimeCallback(long duration) {
+        System.out.println();
+        System.out.println("Time elapsed between dice throw and output of result: " + duration + " ms");
+        System.out.println();
+    }
+
+    public static void InitiateDiceTest() {
         int _diceAmount = 2;
         int _diceFaceAmount = 6;
         Dice _dice = new Dice(_diceAmount, _diceFaceAmount);
