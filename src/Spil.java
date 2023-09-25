@@ -10,7 +10,7 @@ public class Spil {
         Player player2 = new Player(input.nextLine());
 
         while (!PlayRound.playRound(new Player[]{player1, player2}, input)) {
-            ScoreCounter.PrintScore(player1, player2);
+            ScoreCounter.PrintScore(new Player[]{player1, player2});
             
         }
 

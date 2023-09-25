@@ -18,7 +18,7 @@ public class PlayRound {
             _player.addScore(throwResults.addedResult);
             if (hasWon(_player)) {
                 System.out.println(_player.playerName + " Has Won!");
-                ScoreCounter.PrintScore(player1, player2);
+                ScoreCounter.PrintScore(playerList);
                 return true; // terminate game
             }
            
