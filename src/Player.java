@@ -1,5 +1,5 @@
 public class Player {
-        private String playerName;
+        public final String playerName;
         private int score;
         public Player(String playerName) {
             this.playerName = playerName;
