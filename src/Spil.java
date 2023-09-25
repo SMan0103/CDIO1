@@ -9,10 +9,8 @@ public class Spil {
         System.out.println("Enter Name for player 2");
         Player player2 = new Player(input.nextLine());
 
-        while (!PlayRound.playRound(player1, player2)) {
-            System.out.println("Press Enter to play next round!");
+        while (!PlayRound.playRound(new Player[]{player1, player2}, input)) {
             ScoreCounter.PrintScore(player1, player2);
-            input.nextLine(); // Wait for next line
             
         }
 
