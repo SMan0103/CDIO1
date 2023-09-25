@@ -1,12 +1,15 @@
+import java.util.Scanner;
+
 public class PlayRound {
 
-    public static boolean playRound(Player player1, Player player2) { // returns true if game is over
+    public static boolean playRound(Player[] playerList, Scanner scanner) { // returns true if game is over
         Dice dice = new Dice(2, 6);
 
-        Player[] playerList = {player1, player2};
-
         for (Player _player: playerList) {
+            System.out.println();
             System.out.println(_player.playerName + "'s turn.");
+            System.out.println("Press Enter to play next round!");
+            scanner.nextLine(); // Wait for next line
             var throwResults = dice.DiceThrow();
             System.out.println("Your throw was:");
             System.out.println("Dice 1: " + throwResults.individualResults[0]);
@@ -17,6 +20,7 @@ public class PlayRound {
                 System.out.println(_player.playerName + " Has Won!");
                 return true; // terminate game
             }
+           
         }
         return false;
     
