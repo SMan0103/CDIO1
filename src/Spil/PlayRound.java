@@ -1,6 +1,9 @@
+package Spil;
+
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Scanner;
+import Test.*;
 
 public class PlayRound {
     public static boolean performaceTestMode = false; // This is the variable we change when we want to enable performance logging to Test.java

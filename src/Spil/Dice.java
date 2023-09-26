@@ -1,3 +1,5 @@
+package Spil;
+
 import java.util.SplittableRandom;
 
 public class Dice {

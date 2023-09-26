@@ -1,5 +1,11 @@
+package Test;
 
 import java.util.Scanner;
+
+import Spil.Dice;
+import Spil.PlayRound;
+import Spil.Player;
+
 public class Test {
     public static void main(String[] args) throws Exception {
         InitiateDiceTest();
