@@ -1,18 +1,13 @@
-## Getting Started
+## Dice game
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+### Introduction
+The basic premise of the game is 2 people taking turns throwing a set of dice, as each player throws the dice, the sum is added to their point total. The first player to 40 points win. \\
+The game is played in a CLI. When the game is started, the player is instructed on how to play the game. As each players takes turns, helpful information is displayed to let the players know whose turn it is, and how to proceed with the game. As the game ends, a winner is announced.
 
-## Folder Structure
+### Intructions
+To play the game, download the "Release v1.0" zip file found on github. Unzip the file, and simply run the "RunSpil.bat" file. The game should now be running. 
 
-The workspace contains two folders by default, where:
+### Requirements
+The user needs java version 13 or higher to run the game. 
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
